@@ -1,12 +1,13 @@
 // import styled from "styled-components"
 // import { useState } from "react"
+import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import cards from "../deck"
 import FlashCards from "./FlaschCards"
 
 export default function ZapMain(){
 
-
+const [concluded, setConcluded] = useState(2)
 
 
 
@@ -29,7 +30,9 @@ cards={cards}
 
 
 </div>
-<div className="footer-concluidos"></div>
+<div className="footer-concluidos">
+  {concluded}/{(cards.length)} CONCLUÍDOS
+</div>
 </>
 
 
