@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-export default function FlashCards({ cards, textCard, setTextCard, clicked, setClicked, showQuestion}) {
+export default function FlashCards({ cards}) {
     return (
         <div>
             {cards.map((c) => (
@@ -9,10 +9,7 @@ export default function FlashCards({ cards, textCard, setTextCard, clicked, setC
                     number={c.number}
                     question={c.question}
                     answer={c.answer}
-                    textCard={textCard}
-                    setTextCard={setTextCard}
-                    clicked={clicked}
-                    showQuestion={showQuestion}
+                    
                 />
             ))}
         </div>

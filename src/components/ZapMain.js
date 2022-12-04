@@ -1,19 +1,11 @@
 // import styled from "styled-components"
-import { useState } from "react"
+// import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import cards from "../deck"
 import FlashCards from "./FlaschCards"
 
 export default function ZapMain(){
-  console.log(cards)
 
-const [textCard, setTextCard] = useState("")
-const [clicked, setClicked] = useState([])
-
-
-function showQuestion(q){
-  setClicked([...clicked, q])
-  }
 
 
 
@@ -29,11 +21,7 @@ function showQuestion(q){
 
 <FlashCards
 cards={cards}
-textCard={textCard}
-setTextCard={setTextCard}
-clicked={clicked}
-setClicked={setClicked}
-showQuestion={showQuestion}
+
 />
 
 
