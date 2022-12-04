@@ -1,15 +1,18 @@
 // import styled from "styled-components"
+// // import { useState } from "react"
 // import { useState } from "react"
-import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import cards from "../deck"
 import FlashCards from "./FlaschCards"
 
 export default function ZapMain(){
 
-const [concluded, setConcluded] = useState(2)
 
-
+// function clickQuestion(){
+//   const newConcluded = concluded 
+//   setConcluded(newConcluded + 1)
+//   console.log(newConcluded)
+// }
 
     return(
       <>
@@ -23,6 +26,8 @@ const [concluded, setConcluded] = useState(2)
 <FlashCards
 cards={cards}
 
+// clickQuestion={clickQuestion}
+
 />
 
 
@@ -30,9 +35,7 @@ cards={cards}
 
 
 </div>
-<div className="footer-concluidos">
-  {concluded}/{(cards.length)} CONCLUÍDOS
-</div>
+
 </>
 
 

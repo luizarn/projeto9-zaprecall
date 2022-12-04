@@ -5,7 +5,7 @@ import wrong from "../assets/img/icone_erro.png"
 import almost from "../assets/img/icone_quase.png"
 import right from "../assets/img/icone_certo.png"
 
-export default function Card({number, question, answer }) {
+export default function Card({number, question, answer, concluded, setConcluded, arrayConcluded}) {
    
     const [textCard, setTextCard] = useState(number)
     const [classQuestion, setClassQuestion] = useState("pergunta-fechada")
@@ -45,22 +45,37 @@ export default function Card({number, question, answer }) {
     }
 
     function checkAnswer(choice){
+  
         if(choice === "red"){
             setTextCard(number)
             setClassQuestion("pergunta-fechada")
             setComplement ( <img src={wrong} alt="icon"/>)
-        } else if(choice === "yellow"){
+            arrayConcluded.push(choice)
+            setConcluded((arrayConcluded.length))
+        } 
+        if(choice === "yellow"){
             setTextCard(number)
             setClassQuestion("pergunta-fechada")
             setComplement ( <img src={almost} alt="icon"/>)
-        }else{
+            arrayConcluded.push(choice)
+            setConcluded((arrayConcluded.length))
+        }
+        
+        if(choice === "green"){
             setTextCard(number)
             setClassQuestion("pergunta-fechada")
             setComplement ( <img src={right} alt="icon"/>)
+            arrayConcluded.push(choice)
+            setConcluded((arrayConcluded.length))
         }
     }
  
 
+    // function clickQuestion(){
+    //     const newConcluded = concluded 
+    //     setConcluded(newConcluded + 1)
+    //     console.log(newConcluded)
+    //   }
 
 
 
