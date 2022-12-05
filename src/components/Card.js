@@ -15,7 +15,7 @@ export default function Card({ number, question, answer, concluded, setConcluded
     const [classColorRed, setClassColorR] = useState(false)
     const [classColorYellow, setClassColorY] = useState(false)
     const [classColorGreen, setClassColorG] = useState(false)
-    const [complement, setComplement] = useState(<img src={imageIcon} onClick={() => showText()} alt="icon" />)
+    const [complement, setComplement] = useState(<img src={imageIcon} onClick={() => showText()} alt="icon" data-test="play-btn"/>)
 
 
 
@@ -23,7 +23,7 @@ export default function Card({ number, question, answer, concluded, setConcluded
     function showText() {
         setClassQuestion(false)
         setTextCard(question)
-        setComplement(<img src={turn} onClick={() => showAnswer()} alt="icon" />)
+        setComplement(<img src={turn} onClick={() => showAnswer()} alt="icon" data-test="turn-btn"/>)
     }
 
 
@@ -31,13 +31,13 @@ export default function Card({ number, question, answer, concluded, setConcluded
         if (turn) {
             setTextCard(answer)
             setComplement(<ContainerBotoes>
-                <Button red onClick={() => checkAnswer("red")}>
+                <Button red onClick={() => checkAnswer("red")}  data-test="no-btn">
                     Não lembrei
                 </Button>
-                <Button yellow onClick={() => checkAnswer("yellow")}>
+                <Button yellow onClick={() => checkAnswer("yellow")}  data-test="partial-btn">
                     Quase não lembrei
                 </Button>
-                <Button green onClick={() => checkAnswer("green")}>
+                <Button green onClick={() => checkAnswer("green")}  data-test="zap-btn">
                     Zap!
                 </Button>
             </ContainerBotoes>
@@ -50,7 +50,7 @@ export default function Card({ number, question, answer, concluded, setConcluded
         if (choice === "red") {
             setTextCard(number)
             setClassQuestion("true")
-            setComplement(<img src={wrong} alt="icon" />)
+            setComplement(<img src={wrong} alt="icon" data-test="no-icon"/>)
             arrayConcluded.push(choice)
             setConcluded((arrayConcluded.length))
             setClassColorR(true)
@@ -58,7 +58,7 @@ export default function Card({ number, question, answer, concluded, setConcluded
         if (choice === "yellow") {
             setTextCard(number)
             setClassQuestion("true")
-            setComplement(<img src={almost} alt="icon" />)
+            setComplement(<img src={almost} alt="icon" data-test="partial-icon" />)
             arrayConcluded.push(choice)
             setConcluded((arrayConcluded.length))
             setClassColorY(true)
@@ -67,7 +67,7 @@ export default function Card({ number, question, answer, concluded, setConcluded
         if (choice === "green") {
             setTextCard(number)
             setClassQuestion("true")
-            setComplement(<img src={right} alt="icon" />)
+            setComplement(<img src={right} alt="icon" data-test="zap-icon"/>)
             arrayConcluded.push(choice)
             setConcluded((arrayConcluded.length))
             setClassColorG(true)
@@ -76,11 +76,11 @@ export default function Card({ number, question, answer, concluded, setConcluded
 
 
     return (
-        <UniqueCard classQuestion={classQuestion} >
-            <Paragrafo classColorRed={classColorRed} classColorYellow={classColorYellow} classColorGreen={classColorGreen}>
+        <UniqueCard classQuestion={classQuestion} data-test="flashcard" >
+            <Paragrafo classColorRed={classColorRed} classColorYellow={classColorYellow} classColorGreen={classColorGreen} data-test="flashcard-text">
                 {textCard}
             </Paragrafo>
-            {complement}
+             {complement}
         </UniqueCard>
     )
 }
